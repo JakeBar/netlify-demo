@@ -1,21 +1,12 @@
 class NetlifyAPI {
-  static async makeRequest(url, method = "GET", payload = null) {
+  static async fetchMessage() {
     try {
-      const response = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        ...(payload ? { body: JSON.stringify(payload) } : {}),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        return data;
-      } else {
-        const { message } = await response.json();
-        return {
-          error: true,
-          message,
-        };
-      }
+      const response = await fetch(`.netlify/functions/fetch-message`);
+      const { message } = await response.json();
+      return {
+        error: true,
+        message,
+      };
     } catch (e) {
       console.log("Something went wrong.");
       return {
@@ -23,12 +14,6 @@ class NetlifyAPI {
         message: e,
       };
     }
-  }
-
-  static fetchMessage() {
-    const url = `.netlify/functions/hello-world`;
-    const method = "GET";
-    return this.makeRequest(url, method);
   }
 }
 
