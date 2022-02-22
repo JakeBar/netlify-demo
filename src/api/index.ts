@@ -1,1 +1,0 @@
-export { NetlifyAPI } from "./netlify";
