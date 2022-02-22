@@ -1,0 +1,29 @@
+{
+  "name": "netlify-demo",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "ntl dev",
+    "start": "parcel src/index.html",
+    "start:api": "ntl function:serve",
+    "build": "parcel build",
+    "lint": "eslint",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "parcel": "^2.2.1",
+    "@parcel/transformer-sass": "^2.2.1",
+    "@netlify/functions": "^0.11.0",
+    "@sentry/react": "^6.17.3",
+    "@sentry/tracing": "^6.17.3",
+    "@types/node": "^14.18.9",
+    "@types/parcel-env": "^0.0.1",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "eslint": "^8.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.5.5"
+  }
+}
